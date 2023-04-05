@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,9 @@ Route::middleware([
 });
 
 Route::get('/redirect', [HomeController::class, 'redirect']);
+Route::get('/view_category', [AdminController::class, 'view_category']);
+Route::get('/login_view', [AuthManagerController::class, 'login_view'])->name('login_view');
+Route::post('/login_view', [AuthManagerController::class, 'login_viewPost'])->name('login_view.post');
+Route::get('/register_view', [AuthManagerController::class, 'register_view'])->name('register_view');
+Route::post('/register_view', [AuthManagerController::class, 'register_viewPost'])->name('register_view.post');
+Route::get('/logout_view', [AuthManagerController::class, 'logout_view'])->name('logout_view');
